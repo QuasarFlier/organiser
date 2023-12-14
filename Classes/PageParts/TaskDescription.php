@@ -27,12 +27,14 @@ class TaskDescription {
         $taskID = $this -> GetTaskID();
         $descriptionFromDB = $this-> _database -> GetTaskDescription($taskID);
         $nameFromDB = $this -> _database -> GetTaskName($taskID);
+        $dateFromDB = $this -> _database -> GetTaskDate($taskID);
         $taskDescriptionHtml = <<< TASK_DESCRIPTION
             <div class="description">
-                <h2>$nameFromDB</h2>
+                <h2>Название задачи: $nameFromDB</h2>
                 <br>
-                <br>
+                <h3>Описание задачи:</h3>
                 <h4>$descriptionFromDB</h4>
+                <h3>Сроки выполнения: $dateFromDB</h3>
             </div>
         TASK_DESCRIPTION;
 

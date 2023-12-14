@@ -135,10 +135,10 @@ class InstallPageParts extends PagePartsBase {
         $this -> ExecuteReCreateTableQuery($query, "Tasks");
     } 
 
-    public function CreateTask($taskName, $taskDescription):void {
+    public function CreateTask($taskName, $taskDescription, $taskDeadline):void {
         $addTaksDataQuery = <<<ADD_TASK_DATA_QUERY
-            INSERT INTO Tasks(Name, Description)
-                VALUES ("$taskName", "$taskDescription")
+            INSERT INTO Tasks(Name, Description, Date)
+                VALUES ("$taskName", "$taskDescription", "$taskDeadline")
         ADD_TASK_DATA_QUERY;
 
         $this -> ExecuteAddTableRowQuery($addTaksDataQuery, "Tasks", "Task");
@@ -148,20 +148,20 @@ class InstallPageParts extends PagePartsBase {
     public function AddNewTask():void {
         $taskName = $_GET["newTask"];
         $taskDescription = $_GET["description"];
-        var_dump($taskDescription, $taskName);
-        $this -> CreateTask($taskName, $taskDescription);
+        $taskDeadline = $_GET["deadline"];
+        $this -> CreateTask($taskName, $taskDescription, $taskDeadline);
     }
 
     public function CreateDefaultTask():void {
-        $this -> CreateTask("Приветствуем", "Спасибо что пользуетесь нашим организатором задач!");
+        $this -> CreateTask("Приветствуем", "Спасибо что пользуетесь нашим организатором задач!", "2024-01-01");
     }
 
     public function CreateTestTask():void {
-        $this -> CreateTask("test", "test Спасибо что пользуетесь нашим организатором задач!");
+        $this -> CreateTask("test", "test Спасибо что пользуетесь нашим организатором задач!", "2024-01-01");
     }
 
     public function CreateTest2Task():void {
-        $this -> CreateTask("test2", "test2 Спасибо что пользуетесь нашим организатором задач!");
+        $this -> CreateTask("test2", "test2 Спасибо что пользуетесь нашим организатором задач!", "2024-01-01");
     }
 
     public function CreateRootProfile():void {

@@ -89,4 +89,16 @@ class DataBase {
         $resultArray = $result -> fetchArray(SQLITE3_ASSOC);
         return $resultArray["Description"];
     }
+
+    public function GetTaskDate($ID) {
+        $query = <<<TASK_DESCRIPTION_QUERY
+        SELECT Date
+        FROM Tasks
+        WHERE ID="$ID"
+        TASK_DESCRIPTION_QUERY;
+
+        $result = $this -> _sqlite3 -> query($query);
+        $resultArray = $result -> fetchArray(SQLITE3_ASSOC);
+        return $resultArray["Date"];
+    }
 }

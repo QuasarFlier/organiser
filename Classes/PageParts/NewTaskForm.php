@@ -15,6 +15,7 @@ class NewTaskForm {
         <form action="NewTask.php" method="get">
             Название задачи: <input type="text" name="newTask"><br>
             Текст задачи: <input type="text" name="description"><br>
+            Срок задачи: <input type="date" name="deadline"><br>
             <input type="submit" value="Добавить задачу">
         </form>
         NEW_TASK_FORM;
@@ -22,10 +23,10 @@ class NewTaskForm {
         echo $taskFormHtml;
     }
 
-    public function CreateTask($taskName, $taskDescription):void {
+    public function CreateTask($taskName, $taskDescription, $taskDeadline):void {
         $addTaksDataQuery = <<<ADD_TASK_DATA_QUERY
-            INSERT INTO Tasks(Name, Description)
-                VALUES ("$taskName", "$taskDescription")
+            INSERT INTO Tasks(Name, Description, Date)
+                VALUES ("$taskName", "$taskDescription", "$taskDeadline")
         ADD_TASK_DATA_QUERY;
 
         $this -> ExecuteAddTableRowQuery($addTaksDataQuery, "Tasks", "Task");
@@ -49,7 +50,8 @@ class NewTaskForm {
         }
         $taskName = $_GET["newTask"];
         $taskDescription = $_GET["description"];
-        $this -> CreateTask($taskName, $taskDescription);
+        $taskDeadline = $_GET["deadline"];
+        $this -> CreateTask($taskName, $taskDescription, $taskDeadline);
     }
 
 }
