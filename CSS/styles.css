@@ -1,6 +1,8 @@
 body {
   margin: 0 8rem;
-  background-color: #fff;
+  background-image: url("../Images/blackboard.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 button {

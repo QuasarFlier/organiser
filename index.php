@@ -53,11 +53,12 @@ $installPageParts = new InstallPageParts();
     </div>
 </body>
 <footer class="footer-container">
-        <?php $installPageParts -> EchoForm(); ?>
-        <?php $installPageParts -> CreateDbFile(); ?>
-        <?php $installPageParts -> CreateTaskTableOnDb(); ?>
-        <?php $installPageParts -> CreateDefaultTask(); ?>
-        <?php $installPageParts -> CreateTestTask(); ?>
-        <?php $installPageParts -> CreateTest2Task(); ?>
+        <?php $installPageParts -> EchoForm();
+         $installPageParts -> CreateDbFile();
+         $installPageParts -> CreateTaskTableOnDb();
+         $installPageParts -> CreateDefaultTask();
+         $installPageParts -> CreateTestTask();
+         $installPageParts -> CreateTest2Task(); ?>
+        <p>Приложение создано Василием Диком</p>
 </footer>
 </html>
