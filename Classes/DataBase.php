@@ -28,32 +28,6 @@ class DataBase {
         return $this -> _sqlite3 -> exec($query);
     }
 
-    public function AuthorizeUser($userName, $userHash):bool {
-        $query = <<<AUTH_QUERY
-        SELECT a.UserName, p.Balance
-        FROM Auth AS a, Profile AS p
-        WHERE p.AuthID = a.ID AND a.UserName="$userName" AND a.UserHash="$userHash";
-        AUTH_QUERY;
-
-        $result = $this -> _sqlite3 -> query($query);
-        $resultArray = $result -> fetchArray(SQLITE3_ASSOC);
-        //var_dump($result);
-        //var_dump($result1);
-        return $resultArray !== false;
-    }
-
-    public function GetBalance($userName):int {
-        $query = <<<BALANCE_QUERY
-        SELECT a.UserName, p.Balance
-        FROM Auth AS a, Profile AS p
-        WHERE p.AuthID = a.ID AND a.UserName="$userName";
-        BALANCE_QUERY;
-
-        $result = $this -> _sqlite3 -> query($query);
-        $resultArray = $result -> fetchArray(SQLITE3_ASSOC);
-        return $resultArray["Balance"];
-    }
-
     public function GetTaskNumber():int {
         $query = <<<TASK_NUMBER_QUERY
         SELECT COUNT(*)

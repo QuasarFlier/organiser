@@ -10,7 +10,7 @@ $installPageParts = new InstallPageParts();
     <head>
     </head>
     <body>
-        <h1>Poker installer</h1>
+        <h1>Database installer</h1>
         <hr>
         <?php $installPageParts -> EchoForm(); ?>
         <?php $installPageParts -> CreateDbFile(); ?>
