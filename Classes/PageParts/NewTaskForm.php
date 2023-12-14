@@ -13,10 +13,10 @@ class NewTaskForm {
     public function EchoNewTaskForm():void {
         $taskFormHtml = <<<NEW_TASK_FORM
         <form action="NewTask.php" method="get">
-            Название задачи: <input type="text" name="newTask"><br>
-            Текст задачи: <input type="text" name="description"><br>
-            Срок задачи: <input type="date" name="deadline"><br>
-            <input type="submit" value="Добавить задачу">
+            Название задачи: <input type="text" name="newTask" style="heigth: 30px; width 150px"><br><br><br>
+            Текст задачи: <input type="text" name="description" style="height: 250px; width: 400px"><br><br><br>
+            Срок задачи: <input type="date" name="deadline"><br><br><br>
+            <input type="submit" value="Добавить задачу" class="submit-button">
         </form>
         NEW_TASK_FORM;
 

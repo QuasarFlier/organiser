@@ -7,7 +7,7 @@ class Header {
     public function EchoMainHeader():void {
 
         $headerHtml = <<< HEADER
-        <div>
+        <div class="header-container">
             <div class="header-element">
                 <a href="../archive.php">
                     <button class="header-button">

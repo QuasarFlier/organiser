@@ -7,15 +7,13 @@ class NewTask {
     public function EchoNewTask():void {
 
         $newTaskHtml = <<< NEW_TASK
-        <div>
-            <div class="header-element">
-                <a>
-                    <button class="header-button">
+            <div class="task-container-item">
+                <a href="../NewTask.php">
+                    <button class="new-task-button">
                         Новая задача
                     </button>
                 </a>
             </div>
-        </div>
         NEW_TASK;
 
         echo $newTaskHtml;

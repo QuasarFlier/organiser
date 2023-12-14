@@ -101,4 +101,30 @@ class DataBase {
         $resultArray = $result -> fetchArray(SQLITE3_ASSOC);
         return $resultArray["Date"];
     }
+
+    public function GetTaskState($ID) {
+        $query = <<<TASK_DESCRIPTION_QUERY
+        SELECT State
+        FROM Tasks
+        WHERE ID="$ID"
+        TASK_DESCRIPTION_QUERY;
+
+        $result = $this -> _sqlite3 -> query($query);
+        $resultArray = $result -> fetchArray(SQLITE3_ASSOC);
+        return $resultArray["State"];
+    }
+
+    public function DefaultDescription () {
+        $default = <<<DEFAULT
+            <div class="output-container-item">
+            <h1>Добро пожаловать в органайзер задач</h1>
+            </div>
+            <div class="output-container-item task-list">
+            <p class="main-text">Этот органайзер поможет вам следить за задачами и не забывать о них. Приятного пользования</p>
+            </div>
+        DEFAULT;
+
+        echo ($default);
+        return;
+    }
 }

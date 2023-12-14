@@ -15,6 +15,7 @@ $newTaskForm = new NewTaskForm();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/styles.css" /> 
 </head>
 <header>
     <?php
@@ -22,9 +23,11 @@ $newTaskForm = new NewTaskForm();
     ?>
 </header>
 <body>
+    <div class="body-container">
     <?php
         $newTaskForm -> EchoNewTaskForm();
         $newTaskForm -> AddNewTask();
     ?>
+    </div>
 </body>
 </html>

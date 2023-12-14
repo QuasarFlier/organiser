@@ -21,16 +21,6 @@ class Field {
         $this -> _database = new DataBase;
     }
 
-    public function EchoNewTask():void {
-        $newtaskHtml = <<< NEW_TASK
-            <a href="../NewTask.php">
-                <button class="task">Новая задача</button>
-            </a>
-        NEW_TASK;
-
-        echo $newtaskHtml;
-    }
-
     public function EchoTask($name, $id):void {
         $taskHtml = <<< TASK
         <label for="$name">$name</label>
@@ -43,8 +33,10 @@ class Field {
     public function EchoField():void {
         $taskNumber = $this -> _database -> GetTaskNumber();
         for ($counter = 1; $counter <=$taskNumber; $counter++) {
-            $taskName = $this -> _database -> GetTaskName($taskNumber);
-            $this -> EchoTask($taskName, $counter);
+            if (date("Y-m-d") < $this -> _database -> GetTaskDate($counter)) {
+                $taskName = $this -> _database -> GetTaskName($counter);
+                $this -> EchoTask($taskName, $counter);
+            }
         }
     }
 

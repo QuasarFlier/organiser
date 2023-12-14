@@ -24,17 +24,23 @@ class TaskDescription {
     }
 
     public function EchoTaskDescription():void {
+        if (!isset($_GET["task"])) {
+            $this -> _database -> DefaultDescription();
+            return;
+        }
         $taskID = $this -> GetTaskID();
         $descriptionFromDB = $this-> _database -> GetTaskDescription($taskID);
+        
         $nameFromDB = $this -> _database -> GetTaskName($taskID);
         $dateFromDB = $this -> _database -> GetTaskDate($taskID);
         $taskDescriptionHtml = <<< TASK_DESCRIPTION
-            <div class="description">
+            <div class="output-container-item">
                 <h2>Название задачи: $nameFromDB</h2>
-                <br>
-                <h3>Описание задачи:</h3>
-                <h4>$descriptionFromDB</h4>
-                <h3>Сроки выполнения: $dateFromDB</h3>
+            </div>
+            <div class="output-container-item task-list">
+                <h1>Описание задачи:</h1>
+                <p class="main-text">$descriptionFromDB</p>
+                <p class="main-text">Сроки выполнения: $dateFromDB</p>
             </div>
         TASK_DESCRIPTION;
 
